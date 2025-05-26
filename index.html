@@ -126,27 +126,10 @@
 
         .description {
             flex-grow: 1;
-            margin-bottom: 15px !important;
+            margin-bottom: 15px !important; /* Beibehaltung des Abstands, auch ohne Button */
         }
 
-        .restaurant-card-content a.details-button {
-            display: inline-block;
-            padding: 10px 18px;
-            /* Geändert zu Grün-Gradient */
-            background: linear-gradient(135deg, #2E7D32, #66BB6A); 
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            margin-top: auto;
-            transition: opacity 0.2s ease;
-            font-size: 0.95em;
-            font-weight: bold;
-        }
-
-        .restaurant-card-content a.details-button:hover {
-            opacity: 0.85;
-        }
+        /* CSS für .details-button entfernt */
 
         footer {
             text-align: center;
@@ -180,8 +163,8 @@
                 priceLevel: "€€€€",
                 imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPX-08L7K4z9JOp1chU4xQVHoB09HH-WGcT4CxO=s680-w680-h510-rw",
                 description: "Exquisite Sterneküche in einem historischen Kaufmannshaus. Perfekt für einen besonderen Anlass und ein unvergessliches Geschmackserlebnis.",
-                birthdayTip: "Ideal für ein elegantes Geburtstagsdinner.",
-                detailsLink: "#" 
+                birthdayTip: "Ideal für ein elegantes Geburtstagsdinner."
+                // detailsLink entfernt
             },
             {
                 name: "Schiffergesellschaft",
@@ -189,8 +172,7 @@
                 priceLevel: "€€€",
                 imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPOyIifJzphUw5GpLlX9Wi7Sk89Zq1lBMDxdB__=s680-w680-h510-rw",
                 description: "Einzigartiges Ambiente in den historischen Räumen der Seefahrergilde. Bietet traditionelle norddeutsche Küche.",
-                birthdayTip: "Historisches Flair für eine besondere Feier.",
-                detailsLink: "#"
+                birthdayTip: "Historisches Flair für eine besondere Feier."
             },
             {
                 name: "Miera",
@@ -198,8 +180,7 @@
                 priceLevel: "€€€",
                 imageUrl: "https://lh3.googleusercontent.com/p/AF1QipMLZScWC58zDC2MVDGCLinkFaCc1MjlVOzrg-uZ=s680-w680-h510-rw",
                 description: "Stilvolles Restaurant mit gehobener mediterraner Küche und einer exzellenten Weinauswahl. Schöner Innenhof im Sommer.",
-                birthdayTip: "Elegant und modern mit mediterranem Touch.",
-                detailsLink: "#"
+                birthdayTip: "Elegant und modern mit mediterranem Touch."
             },
             {
                 name: "Restaurant Schlumachers",
@@ -207,8 +188,7 @@
                 priceLevel: "€€€",
                 imageUrl: "https://schlumachers.de/wp-content/uploads/2022/05/Location-34-scaled.jpg",
                 description: "Kreative Küche, die regionale Produkte mit französischen Einflüssen kombiniert. Gemütliches und dennoch gehobenes Ambiente.",
-                birthdayTip: "Kreativ und gemütlich für Genießer.",
-                detailsLink: "#"
+                birthdayTip: "Kreativ und gemütlich für Genießer."
             },
             {
                 name: "Fangfrisch",
@@ -216,8 +196,7 @@
                 priceLevel: "€€-€€€",
                 imageUrl: "https://fangfrisch-luebeck.de/wp-content/uploads/2024/11/123.webp",
                 description: "Moderne Fischgerichte und Meeresfrüchte in stilvoller Atmosphäre, direkt am Wasser. Ideal für Fischliebhaber.",
-                birthdayTip: "Frischer Fisch mit Hafenblick.",
-                detailsLink: "#"
+                birthdayTip: "Frischer Fisch mit Hafenblick."
             },
             {
                 name: "Ristorante San Michele",
@@ -225,8 +204,7 @@
                 priceLevel: "€€",
                 imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nop0sbFihKftk7oD8QhOso0EWAzJtnOtZ4dNTdj3lXDwoktMEF84uQQqRam6R-yzK2hM7y4v5vKtt8rIBgyZfhF-RmcwF0Z8fjaOqnP43_m069XzJ_KaACApzw04viNhGAUwtM=s680-w680-h510-rw",
                 description: "Authentische italienische Küche in einem charmanten und einladenden Ambiente. Bietet eine gute Auswahl an klassischen Gerichten und Weinen.",
-                birthdayTip: "Klassisch italienisch und herzlich.",
-                detailsLink: "#"
+                birthdayTip: "Klassisch italienisch und herzlich."
             },
             {
                 name: "Johanna Berger - Das Restaurant",
@@ -234,8 +212,7 @@
                 priceLevel: "€€€",
                 imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noJUA4Nm5wu0AYOJQG6p-yC699vkdKUF86KAPFzquEN8qyRMdabZYxkSC5VRsjP1gcbvupK0IQtFZg3iIcC-xP8uv3FkVeFD8I0n1aE9-ddH34HAWOcRrsjH8ALSGRGRtrimTzePw=s680-w680-h510-rw",
                 description: "Kreative, moderne deutsche Küche in einem stilvollen, aber gemütlichen Ambiente. Oft mit Überraschungsmenüs.",
-                birthdayTip: "Modern und überraschend.",
-                detailsLink: "#"
+                birthdayTip: "Modern und überraschend."
             },
             {
                 name: "Vai Bistro & Bar",
@@ -243,8 +220,7 @@
                 priceLevel: "€€",
                 imageUrl: "https://restaurant-vai.de/wp-content/uploads/2021/06/innenhof.jpg",
                 description: "Trendiges Bistro mit einer guten Auswahl an modernen europäischen Gerichten und Cocktails. Eher locker, aber stilvoll.",
-                birthdayTip: "Locker-elegant für einen geselligen Abend.",
-                detailsLink: "#"
+                birthdayTip: "Locker-elegant für einen geselligen Abend."
             },
              {
                 name: "Newport Restaurant & Marina",
@@ -252,8 +228,7 @@
                 priceLevel: "€€€-€€€€",
                 imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPHEU6ReTADyNf0HNAwq9cXanw4a826AYWTXMEA=s680-w680-h510-rw",
                 description: "Gehobene internationale Küche mit fantastischem Blick auf die Trave und die Lübecker Altstadt. Besonders schön am Abend.",
-                birthdayTip: "Dinner mit spektakulärer Aussicht.",
-                detailsLink: "#"
+                birthdayTip: "Dinner mit spektakulärer Aussicht."
             }
         ];
 
@@ -313,14 +288,7 @@
                 description.className = 'description';
                 description.textContent = restaurant.description;
 
-                const detailsButton = document.createElement('a');
-                detailsButton.href = restaurant.detailsLink;
-                detailsButton.className = 'details-button';
-                detailsButton.textContent = 'Details & Reservierung'; 
-                detailsButton.target = '_blank'; 
-
-                content.appendChild(description); 
-                content.appendChild(detailsButton); 
+                // Code für detailsButton entfernt
                 
                 card.appendChild(img);
                 card.appendChild(content);
