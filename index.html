@@ -5,73 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angelas Geburtstagsessen in Lübeck</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Elegante Schrift für Titel */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+        :root {
+            --primary-color: #004d40; /* Dunkles Teal/Smaragdgrün */
+            --secondary-color: #81c784; /* Sanftes Grün für Akzente */
+            --accent-gold: #b08d57; /* Gedämpftes Gold/Bronze */
+            --background-color: #fdfdfb; /* Sehr helles, warmes Off-White */
+            --text-color: #333333;
+            --card-background: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Lora', serif; /* Elegante Serifenschrift für den Fließtext */
             margin: 0;
             padding: 0;
-            background-color: #fdfcfa; /* Wärmeres Weiß */
-            color: #4a4a4a; /* Dunkleres Grau */
-            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7; /* Etwas mehr Zeilenhöhe für bessere Lesbarkeit */
         }
 
         header {
-            /* Geändert zu Grün-Gold Gradient */
-            background: linear-gradient(135deg, #2E7D32, #66BB6A); 
+            background: linear-gradient(135deg, var(--primary-color), #00695c); /* Dunkelgrüner Gradient */
             color: white;
-            padding: 2.5em 1em;
+            padding: 3em 1.5em; /* Mehr Padding */
             text-align: center;
-            border-bottom: 5px solid #FFD700; /* Goldener Akzent bleibt */
+            border-bottom: 6px solid var(--accent-gold); /* Goldener Akzent */
         }
 
         header h1 {
-            margin: 0;
-            font-family: 'Playfair Display', serif; /* Elegante Schrift */
-            font-size: 2.8em;
+            margin: 0 0 0.2em 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 3em; /* Größerer Titel */
             font-weight: 700;
+            letter-spacing: 1px;
         }
 
         header p {
-            margin-top: 0.5em;
-            font-size: 1.2em;
+            margin-top: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.3em; /* Größerer Untertitel */
             font-weight: 300;
+            opacity: 0.9;
         }
 
         #restaurant-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 25px;
-            padding: 25px;
-            max-width: 1400px;
-            margin: 20px auto; 
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Etwas breitere Karten */
+            gap: 30px; /* Mehr Abstand */
+            padding: 30px;
+            max-width: 1500px; /* Etwas breiterer Container */
+            margin: 30px auto; 
         }
 
         .restaurant-card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.09);
+            background-color: var(--card-background);
+            border-radius: 15px; /* Stärkere Abrundung */
+            border: 1px solid var(--border-color); /* Dezenter Rand */
+            box-shadow: 0 8px 20px var(--shadow-color); /* Weicherer, tieferer Schatten */
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
             display: flex;
             flex-direction: column;
         }
 
         .restaurant-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px); /* Stärkerer Hover-Effekt */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .restaurant-card img {
             width: 100%;
-            height: 220px;
+            height: 240px; /* Etwas höhere Bilder */
             object-fit: cover;
-            background-color: #eee; 
+            background-color: #f0f0f0; /* Hellerer Fallback-Hintergrund */
+            border-bottom: 1px solid var(--border-color);
         }
 
         .restaurant-card-content {
-            padding: 20px;
+            padding: 25px; /* Mehr Innenabstand */
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -79,64 +95,81 @@
 
         .restaurant-card-content h3 {
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 0.6em; /* Mehr Abstand nach unten */
             font-family: 'Playfair Display', serif;
-            color: #2E7D32; /* Geändert zu Dunkelgrün */
-            font-size: 1.6em;
+            color: var(--primary-color); 
+            font-size: 1.8em; /* Größerer Restaurantname */
+            font-weight: 600;
         }
-
-        .restaurant-card-content p {
-            margin-bottom: 9px;
-            font-size: 0.95em;
-            color: #555;
-        }
-
+        
         .cuisine-price-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 0.8em; /* Angepasster Abstand */
+            border-bottom: 1px dashed var(--border-color); /* Dezente Trennlinie */
+            padding-bottom: 0.8em;
         }
 
         .cuisine-type {
-            font-weight: bold;
-            color: #fff;
-            background-color: #66BB6A; /* Geändert zu Mittelgrün */
-            padding: 4px 9px;
-            border-radius: 4px;
-            display: inline-block;
-            font-size: 0.9em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500; /* Etwas dicker */
+            color: var(--primary-color);
+            background-color: #e0f2f1; /* Sehr helles Mintgrün, passend zum Primärgrün */
+            padding: 5px 10px; /* Angepasstes Padding */
+            border-radius: 20px; /* Pillenform */
+            font-size: 0.85em; /* Etwas kleiner für besseren Kontrast zur Überschrift */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .price-level {
-            font-weight: bold;
-            color: #2E7D32; /* Geändert zu Dunkelgrün */
-            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700; /* Dicker für Preis */
+            color: var(--accent-gold); /* Gold für Preis */
+            font-size: 1.1em; /* Preis etwas größer */
         }
         
         .birthday-tip { 
-            font-size: 0.9em;
-            color: #d81b60; /* Festliches Pink/Rot bleibt für diesen Akzent */
-            font-weight: bold;
-            margin-bottom: 12px;
+            font-family: 'Lora', italic;
+            font-size: 0.95em;
+            color: #c2185b; /* Etwas gedämpfteres Pink/Rot */
+            font-weight: 500;
+            margin-top: 0.5em; /* Abstand nach oben */
+            margin-bottom: 1em;
             display: block;
-            border-left: 3px solid #d81b60;
-            padding-left: 8px;
+            border-left: 4px solid var(--accent-gold); /* Goldener Rand */
+            padding-left: 12px; /* Mehr Einzug */
+            background-color: #fff8e1; /* Sehr heller Creme-Ton für den Tipp-Hintergrund */
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 8px 8px 0;
         }
 
         .description {
-            flex-grow: 1;
-            margin-bottom: 15px !important; /* Beibehaltung des Abstands, auch ohne Button */
+            font-family: 'Lora', serif;
+            font-size: 0.95em; /* Etwas größer für bessere Lesbarkeit */
+            color: var(--text-color); 
+            line-height: 1.6;
+            margin-top: 0.5em; 
+            margin-bottom: auto; /* Wichtig, um den Platz zu füllen, wenn kein Button da ist */
+            padding-bottom: 1em; /* Abstand nach unten, falls es das letzte Element ist */
+            background-color: transparent; /* Debug-Hintergrund entfernt */
+            padding: 0; /* Debug-Padding entfernt */
+            flex-grow: 1; /* Sorgt dafür, dass die Beschreibung den verfügbaren Platz einnimmt */
         }
-
-        /* CSS für .details-button entfernt */
 
         footer {
             text-align: center;
-            padding: 2em 0;
-            background-color: #333;
-            color: #fdfcfa;
-            margin-top: 40px;
+            padding: 2.5em 1em; /* Mehr Padding */
+            background-color: var(--text-color); /* Dunkler Footer */
+            color: var(--background-color); /* Heller Text im Footer */
+            margin-top: 50px; /* Mehr Abstand nach oben */
+            font-family: 'Roboto', sans-serif;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
         }
     </style>
 </head>
@@ -161,25 +194,24 @@
                 name: "Wullenwever",
                 cuisine: "Gehoben",
                 priceLevel: "€€€€",
-                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPX-08L7K4z9JOp1chU4xQVHoB09HH-WGcT4CxO=s680-w680-h510-rw",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPX-08L7K4z9JOp1chU4xQVHoB09HH-WGcT4CxO=s680-w680-h510-rw", // Bitte valide URL prüfen
                 description: "Exquisite Sterneküche in einem historischen Kaufmannshaus. Perfekt für einen besonderen Anlass und ein unvergessliches Geschmackserlebnis.",
                 birthdayTip: "Ideal für ein elegantes Geburtstagsdinner."
-                // detailsLink entfernt
             },
             {
                 name: "Schiffergesellschaft",
                 cuisine: "Traditionell Deutsch",
                 priceLevel: "€€€",
-                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPOyIifJzphUw5GpLlX9Wi7Sk89Zq1lBMDxdB__=s680-w680-h510-rw",
-                description: "Einzigartiges Ambiente in den historischen Räumen der Seefahrergilde. Bietet traditionelle norddeutsche Küche.",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPOyIifJzphUw5GpLlX9Wi7Sk89Zq1lBMDxdB__=s680-w680-h510-rw", // Bitte valide URL prüfen
+                description: "Einzigartiges Ambiente in den historischen Räumen der Seefahrergilde. Bietet traditionelle norddeutsche Küche mit maritimen Spezialitäten.",
                 birthdayTip: "Historisches Flair für eine besondere Feier."
             },
             {
                 name: "Miera",
                 cuisine: "Mediterran",
                 priceLevel: "€€€",
-                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipMLZScWC58zDC2MVDGCLinkFaCc1MjlVOzrg-uZ=s680-w680-h510-rw",
-                description: "Stilvolles Restaurant mit gehobener mediterraner Küche und einer exzellenten Weinauswahl. Schöner Innenhof im Sommer.",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipMLZScWC58zDC2MVDGCLinkFaCc1MjlVOzrg-uZ=s680-w680-h510-rw", // Bitte valide URL prüfen
+                description: "Stilvolles Restaurant mit gehobener mediterraner Küche und einer exzellenten Weinauswahl. Schöner Innenhof im Sommer für laue Abende.",
                 birthdayTip: "Elegant und modern mit mediterranem Touch."
             },
             {
@@ -187,7 +219,7 @@
                 cuisine: "Europäisch",
                 priceLevel: "€€€",
                 imageUrl: "https://schlumachers.de/wp-content/uploads/2022/05/Location-34-scaled.jpg",
-                description: "Kreative Küche, die regionale Produkte mit französischen Einflüssen kombiniert. Gemütliches und dennoch gehobenes Ambiente.",
+                description: "Kreative Küche, die regionale Produkte mit französischen Einflüssen kombiniert. Gemütliches und dennoch gehobenes Ambiente für einen besonderen Abend.",
                 birthdayTip: "Kreativ und gemütlich für Genießer."
             },
             {
@@ -195,23 +227,23 @@
                 cuisine: "Fisch",
                 priceLevel: "€€-€€€",
                 imageUrl: "https://fangfrisch-luebeck.de/wp-content/uploads/2024/11/123.webp",
-                description: "Moderne Fischgerichte und Meeresfrüchte in stilvoller Atmosphäre, direkt am Wasser. Ideal für Fischliebhaber.",
+                description: "Moderne Fischgerichte und Meeresfrüchte in stilvoller Atmosphäre, direkt am Wasser. Ideal für Fischliebhaber, die frische Zubereitungen schätzen.",
                 birthdayTip: "Frischer Fisch mit Hafenblick."
             },
             {
                 name: "Ristorante San Michele",
                 cuisine: "Italienisch",
                 priceLevel: "€€",
-                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nop0sbFihKftk7oD8QhOso0EWAzJtnOtZ4dNTdj3lXDwoktMEF84uQQqRam6R-yzK2hM7y4v5vKtt8rIBgyZfhF-RmcwF0Z8fjaOqnP43_m069XzJ_KaACApzw04viNhGAUwtM=s680-w680-h510-rw",
-                description: "Authentische italienische Küche in einem charmanten und einladenden Ambiente. Bietet eine gute Auswahl an klassischen Gerichten und Weinen.",
+                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nop0sbFihKftk7oD8QhOso0EWAzJtnOtZ4dNTdj3lXDwoktMEF84uQQqRam6R-yzK2hM7y4v5vKtt8rIBgyZfhF-RmcwF0Z8fjaOqnP43_m069XzJ_KaACApzw04viNhGAUwtM=s680-w680-h510-rw", // Bitte valide URL prüfen
+                description: "Authentische italienische Küche in einem charmanten und einladenden Ambiente. Bietet eine gute Auswahl an klassischen Gerichten und Weinen für einen geselligen Abend.",
                 birthdayTip: "Klassisch italienisch und herzlich."
             },
             {
                 name: "Johanna Berger - Das Restaurant",
                 cuisine: "Modern Deutsch",
                 priceLevel: "€€€",
-                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noJUA4Nm5wu0AYOJQG6p-yC699vkdKUF86KAPFzquEN8qyRMdabZYxkSC5VRsjP1gcbvupK0IQtFZg3iIcC-xP8uv3FkVeFD8I0n1aE9-ddH34HAWOcRrsjH8ALSGRGRtrimTzePw=s680-w680-h510-rw",
-                description: "Kreative, moderne deutsche Küche in einem stilvollen, aber gemütlichen Ambiente. Oft mit Überraschungsmenüs.",
+                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noJUA4Nm5wu0AYOJQG6p-yC699vkdKUF86KAPFzquEN8qyRMdabZYxkSC5VRsjP1gcbvupK0IQtFZg3iIcC-xP8uv3FkVeFD8I0n1aE9-ddH34HAWOcRrsjH8ALSGRGRtrimTzePw=s680-w680-h510-rw", // Bitte valide URL prüfen
+                description: "Kreative, moderne deutsche Küche in einem stilvollen, aber gemütlichen Ambiente. Oft mit Überraschungsmenüs, die den Gaumen verwöhnen.",
                 birthdayTip: "Modern und überraschend."
             },
             {
@@ -219,15 +251,15 @@
                 cuisine: "Europäisch",
                 priceLevel: "€€",
                 imageUrl: "https://restaurant-vai.de/wp-content/uploads/2021/06/innenhof.jpg",
-                description: "Trendiges Bistro mit einer guten Auswahl an modernen europäischen Gerichten und Cocktails. Eher locker, aber stilvoll.",
+                description: "Trendiges Bistro mit einer guten Auswahl an modernen europäischen Gerichten und Cocktails. Eher locker, aber stilvoll für einen entspannten Geburtstag.",
                 birthdayTip: "Locker-elegant für einen geselligen Abend."
             },
              {
                 name: "Newport Restaurant & Marina",
                 cuisine: "International",
                 priceLevel: "€€€-€€€€",
-                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPHEU6ReTADyNf0HNAwq9cXanw4a826AYWTXMEA=s680-w680-h510-rw",
-                description: "Gehobene internationale Küche mit fantastischem Blick auf die Trave und die Lübecker Altstadt. Besonders schön am Abend.",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPHEU6ReTADyNf0HNAwq9cXanw4a826AYWTXMEA=s680-w680-h510-rw", // Bitte valide URL prüfen
+                description: "Gehobene internationale Küche mit fantastischem Blick auf die Trave und die Lübecker Altstadt. Besonders schön am Abend für ein romantisches oder festliches Dinner.",
                 birthdayTip: "Dinner mit spektakulärer Aussicht."
             }
         ];
@@ -250,16 +282,15 @@
                 img.alt = `Bild von ${restaurant.name}`;
                 img.onerror = function() { 
                     this.onerror=null; 
-                    this.src='https://via.placeholder.com/320x220.png?text=Bild+nicht+geladen'; 
+                    this.src='https://via.placeholder.com/340x240.png?text=Bild+nicht+geladen'; 
                     console.warn(`Bild für ${restaurant.name} konnte nicht geladen werden: ${restaurant.imageUrl}`);
                 };
-
 
                 const content = document.createElement('div');
                 content.className = 'restaurant-card-content';
 
-                const name = document.createElement('h3');
-                name.textContent = restaurant.name;
+                const nameElement = document.createElement('h3');
+                nameElement.textContent = restaurant.name;
 
                 const cuisinePriceContainer = document.createElement('div');
                 cuisinePriceContainer.className = 'cuisine-price-container';
@@ -275,20 +306,19 @@
                 cuisinePriceContainer.appendChild(cuisine);
                 cuisinePriceContainer.appendChild(price);
                 
-                content.appendChild(name); 
+                content.appendChild(nameElement); 
                 content.appendChild(cuisinePriceContainer); 
 
                 if (restaurant.birthdayTip) { 
                     const tip = document.createElement('p');
-                    tip.innerHTML = `<span class="birthday-tip">${restaurant.birthdayTip}</span>`;
+                    tip.innerHTML = `<span class="birthday-tip">${restaurant.birthdayTip}</span>`; 
                     content.appendChild(tip);
                 }
                 
-                const description = document.createElement('p');
-                description.className = 'description';
-                description.textContent = restaurant.description;
-
-                // Code für detailsButton entfernt
+                const descriptionElement = document.createElement('p');
+                descriptionElement.className = 'description';
+                descriptionElement.textContent = restaurant.description;
+                content.appendChild(descriptionElement); 
                 
                 card.appendChild(img);
                 card.appendChild(content);
