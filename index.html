@@ -20,6 +20,17 @@
             --shadow-color: rgba(0, 0, 0, 0.08);
         }
 
+        /* Globale Reset- und Box-Sizing-Regeln */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden; /* Verhindert horizontales Scrollen auf Wurzelebene */
+        }
+
         body {
             font-family: 'Lora', serif; /* Elegante Serifenschrift für den Fließtext */
             margin: 0;
@@ -27,12 +38,13 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.7; /* Etwas mehr Zeilenhöhe für bessere Lesbarkeit */
+            overflow-x: hidden; /* Verhindert horizontales Scrollen auf Body-Ebene */
         }
 
         header {
             background: linear-gradient(135deg, var(--primary-color), #00695c); /* Dunkelgrüner Gradient */
             color: white;
-            padding: 3em 1.5em; /* Mehr Padding */
+            padding: 2.5em 1em; /* Padding für kleinere Bildschirme angepasst */
             text-align: center;
             border-bottom: 6px solid var(--accent-gold); /* Goldener Akzent */
         }
@@ -40,33 +52,40 @@
         header h1 {
             margin: 0 0 0.2em 0;
             font-family: 'Playfair Display', serif;
-            font-size: 3em; /* Größerer Titel */
+            font-size: 2.5em; /* Etwas kleiner für mobile Geräte */
             font-weight: 700;
             letter-spacing: 1px;
+            word-wrap: break-word; /* Stellt sicher, dass langer Text umbricht */
         }
 
         header p {
             margin-top: 0;
             font-family: 'Roboto', sans-serif;
-            font-size: 1.3em; /* Größerer Untertitel */
+            font-size: 1.1em; /* Etwas kleiner für mobile Geräte */
             font-weight: 300;
             opacity: 0.9;
+            padding: 0 10px; /* Verhindert, dass Text an den Rändern klebt */
+        }
+        
+        main {
+            overflow-x: hidden; /* Verhindert horizontales Scrollen im main-Bereich */
+            width: 100%;
         }
 
         #restaurant-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* Etwas breitere Karten */
-            gap: 30px; /* Mehr Abstand */
-            padding: 30px;
-            max-width: 1500px; /* Etwas breiterer Container */
-            margin: 30px auto; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Mindestbreite für Karten leicht reduziert */
+            gap: 20px; /* Etwas weniger Abstand auf kleineren Bildschirmen */
+            padding: 20px 15px; /* Padding oben/unten und seitlich angepasst */
+            max-width: 100%; /* Nimmt die volle verfügbare Breite ein, wird durch main kontrolliert */
+            margin: 20px auto; 
         }
 
         .restaurant-card {
             background-color: var(--card-background);
-            border-radius: 15px; /* Stärkere Abrundung */
-            border: 1px solid var(--border-color); /* Dezenter Rand */
-            box-shadow: 0 8px 20px var(--shadow-color); /* Weicherer, tieferer Schatten */
+            border-radius: 15px; 
+            border: 1px solid var(--border-color); 
+            box-shadow: 0 8px 20px var(--shadow-color); 
             overflow: hidden;
             transition: transform 0.35s ease, box-shadow 0.35s ease;
             display: flex;
@@ -74,20 +93,20 @@
         }
 
         .restaurant-card:hover {
-            transform: translateY(-10px); /* Stärkerer Hover-Effekt */
+            transform: translateY(-10px); 
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
 
         .restaurant-card img {
             width: 100%;
-            height: 240px; /* Etwas höhere Bilder */
+            height: 220px; /* Höhe leicht reduziert */
             object-fit: cover;
-            background-color: #f0f0f0; /* Hellerer Fallback-Hintergrund */
+            background-color: #f0f0f0; 
             border-bottom: 1px solid var(--border-color);
         }
 
         .restaurant-card-content {
-            padding: 25px; /* Mehr Innenabstand */
+            padding: 20px; /* Padding leicht reduziert */
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -95,10 +114,10 @@
 
         .restaurant-card-content h3 {
             margin-top: 0;
-            margin-bottom: 0.6em; /* Mehr Abstand nach unten */
+            margin-bottom: 0.6em; 
             font-family: 'Playfair Display', serif;
             color: var(--primary-color); 
-            font-size: 1.8em; /* Größerer Restaurantname */
+            font-size: 1.6em; /* Größe für Restaurantname angepasst */
             font-weight: 600;
         }
         
@@ -106,41 +125,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8em; /* Angepasster Abstand */
-            border-bottom: 1px dashed var(--border-color); /* Dezente Trennlinie */
+            margin-bottom: 0.8em; 
+            border-bottom: 1px dashed var(--border-color); 
             padding-bottom: 0.8em;
         }
 
         .cuisine-type {
             font-family: 'Roboto', sans-serif;
-            font-weight: 500; /* Etwas dicker */
+            font-weight: 500; 
             color: var(--primary-color);
-            background-color: #e0f2f1; /* Sehr helles Mintgrün, passend zum Primärgrün */
-            padding: 5px 10px; /* Angepasstes Padding */
-            border-radius: 20px; /* Pillenform */
-            font-size: 0.85em; /* Etwas kleiner für besseren Kontrast zur Überschrift */
+            background-color: #e0f2f1; 
+            padding: 5px 10px; 
+            border-radius: 20px; 
+            font-size: 0.8em; /* Größe angepasst */
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .price-level {
             font-family: 'Roboto', sans-serif;
-            font-weight: 700; /* Dicker für Preis */
-            color: var(--accent-gold); /* Gold für Preis */
-            font-size: 1.1em; /* Preis etwas größer */
+            font-weight: 700; 
+            color: var(--accent-gold); 
+            font-size: 1em; /* Größe angepasst */
         }
         
         .birthday-tip { 
             font-family: 'Lora', italic;
-            font-size: 0.95em;
-            color: #c2185b; /* Etwas gedämpfteres Pink/Rot */
+            font-size: 0.9em; /* Größe angepasst */
+            color: #c2185b; 
             font-weight: 500;
-            margin-top: 0.5em; /* Abstand nach oben */
+            margin-top: 0.5em; 
             margin-bottom: 1em;
             display: block;
-            border-left: 4px solid var(--accent-gold); /* Goldener Rand */
-            padding-left: 12px; /* Mehr Einzug */
-            background-color: #fff8e1; /* Sehr heller Creme-Ton für den Tipp-Hintergrund */
+            border-left: 4px solid var(--accent-gold); 
+            padding-left: 12px; 
+            background-color: #fff8e1; 
             padding-top: 8px;
             padding-bottom: 8px;
             border-radius: 0 8px 8px 0;
@@ -148,29 +167,69 @@
 
         .description {
             font-family: 'Lora', serif;
-            font-size: 0.95em; /* Etwas größer für bessere Lesbarkeit */
+            font-size: 0.9em; /* Größe angepasst */
             color: var(--text-color); 
             line-height: 1.6;
             margin-top: 0.5em; 
-            margin-bottom: auto; /* Wichtig, um den Platz zu füllen, wenn kein Button da ist */
-            padding-bottom: 1em; /* Abstand nach unten, falls es das letzte Element ist */
-            background-color: transparent; /* Debug-Hintergrund entfernt */
-            padding: 0; /* Debug-Padding entfernt */
-            flex-grow: 1; /* Sorgt dafür, dass die Beschreibung den verfügbaren Platz einnimmt */
+            margin-bottom: auto; 
+            padding-bottom: 1em; 
+            background-color: transparent; 
+            padding: 0; 
+            flex-grow: 1; 
         }
 
         footer {
             text-align: center;
-            padding: 2.5em 1em; /* Mehr Padding */
-            background-color: var(--text-color); /* Dunkler Footer */
-            color: var(--background-color); /* Heller Text im Footer */
-            margin-top: 50px; /* Mehr Abstand nach oben */
+            padding: 2.5em 1em; 
+            background-color: var(--text-color); 
+            color: var(--background-color); 
+            margin-top: 50px; 
             font-family: 'Roboto', sans-serif;
         }
         footer p {
             margin: 0;
             font-size: 0.9em;
         }
+
+        /* Media Queries für größere Bildschirme, um einige der mobilen Anpassungen zurückzusetzen */
+        @media (min-width: 768px) {
+            header {
+                padding: 3em 1.5em;
+            }
+            header h1 {
+                font-size: 3em;
+            }
+            header p {
+                font-size: 1.3em;
+            }
+            #restaurant-grid {
+                gap: 30px;
+                padding: 30px;
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            }
+            .restaurant-card img {
+                height: 240px;
+            }
+            .restaurant-card-content {
+                padding: 25px;
+            }
+            .restaurant-card-content h3 {
+                font-size: 1.8em;
+            }
+            .cuisine-type {
+                font-size: 0.85em;
+            }
+            .price-level {
+                font-size: 1.1em;
+            }
+            .birthday-tip {
+                font-size: 0.95em;
+            }
+            .description {
+                font-size: 0.95em;
+            }
+        }
+
     </style>
 </head>
 <body>
