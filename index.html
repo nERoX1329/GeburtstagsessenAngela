@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angelas Geburtstagsessen in Lübeck</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Elegante Schrift für Titel */
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfcfa; /* Wärmeres Weiß */
+            color: #4a4a4a; /* Dunkleres Grau */
+            line-height: 1.6;
+        }
+
+        header {
+            /* Geändert zu Grün-Gold Gradient */
+            background: linear-gradient(135deg, #2E7D32, #66BB6A); 
+            color: white;
+            padding: 2.5em 1em;
+            text-align: center;
+            border-bottom: 5px solid #FFD700; /* Goldener Akzent bleibt */
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Playfair Display', serif; /* Elegante Schrift */
+            font-size: 2.8em;
+            font-weight: 700;
+        }
+
+        header p {
+            margin-top: 0.5em;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        #restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 25px;
+            padding: 25px;
+            max-width: 1400px;
+            margin: 20px auto; 
+        }
+
+        .restaurant-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.09);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .restaurant-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #eee; 
+        }
+
+        .restaurant-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurant-card-content h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            color: #2E7D32; /* Geändert zu Dunkelgrün */
+            font-size: 1.6em;
+        }
+
+        .restaurant-card-content p {
+            margin-bottom: 9px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .cuisine-price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .cuisine-type {
+            font-weight: bold;
+            color: #fff;
+            background-color: #66BB6A; /* Geändert zu Mittelgrün */
+            padding: 4px 9px;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .price-level {
+            font-weight: bold;
+            color: #2E7D32; /* Geändert zu Dunkelgrün */
+            font-size: 1em;
+        }
+        
+        .birthday-tip { 
+            font-size: 0.9em;
+            color: #d81b60; /* Festliches Pink/Rot bleibt für diesen Akzent */
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            border-left: 3px solid #d81b60;
+            padding-left: 8px;
+        }
+
+        .description {
+            flex-grow: 1;
+            margin-bottom: 15px !important;
+        }
+
+        .restaurant-card-content a.details-button {
+            display: inline-block;
+            padding: 10px 18px;
+            /* Geändert zu Grün-Gradient */
+            background: linear-gradient(135deg, #2E7D32, #66BB6A); 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: auto;
+            transition: opacity 0.2s ease;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+
+        .restaurant-card-content a.details-button:hover {
+            opacity: 0.85;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2em 0;
+            background-color: #333;
+            color: #fdfcfa;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Angelas Geburtstagsessen in Lübeck</h1>
+        <p>Die besten Restaurants für einen unvergesslichen Abend</p>
+    </header>
+
+    <main>
+        <div id="restaurant-grid">
+            </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Restaurantführer Lübeck | Alles Gute zum Geburtstag, Angela!</p>
+    </footer>
+
+    <script>
+        const restaurants = [
+            {
+                name: "Wullenwever",
+                cuisine: "Gehoben",
+                priceLevel: "€€€€",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPX-08L7K4z9JOp1chU4xQVHoB09HH-WGcT4CxO=s680-w680-h510-rw",
+                description: "Exquisite Sterneküche in einem historischen Kaufmannshaus. Perfekt für einen besonderen Anlass und ein unvergessliches Geschmackserlebnis.",
+                birthdayTip: "Ideal für ein elegantes Geburtstagsdinner.",
+                detailsLink: "#" 
+            },
+            {
+                name: "Schiffergesellschaft",
+                cuisine: "Traditionell Deutsch",
+                priceLevel: "€€€",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPOyIifJzphUw5GpLlX9Wi7Sk89Zq1lBMDxdB__=s680-w680-h510-rw",
+                description: "Einzigartiges Ambiente in den historischen Räumen der Seefahrergilde. Bietet traditionelle norddeutsche Küche.",
+                birthdayTip: "Historisches Flair für eine besondere Feier.",
+                detailsLink: "#"
+            },
+            {
+                name: "Miera",
+                cuisine: "Mediterran",
+                priceLevel: "€€€",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipMLZScWC58zDC2MVDGCLinkFaCc1MjlVOzrg-uZ=s680-w680-h510-rw",
+                description: "Stilvolles Restaurant mit gehobener mediterraner Küche und einer exzellenten Weinauswahl. Schöner Innenhof im Sommer.",
+                birthdayTip: "Elegant und modern mit mediterranem Touch.",
+                detailsLink: "#"
+            },
+            {
+                name: "Restaurant Schlumachers",
+                cuisine: "Europäisch",
+                priceLevel: "€€€",
+                imageUrl: "https://schlumachers.de/wp-content/uploads/2022/05/Location-34-scaled.jpg",
+                description: "Kreative Küche, die regionale Produkte mit französischen Einflüssen kombiniert. Gemütliches und dennoch gehobenes Ambiente.",
+                birthdayTip: "Kreativ und gemütlich für Genießer.",
+                detailsLink: "#"
+            },
+            {
+                name: "Fangfrisch",
+                cuisine: "Fisch",
+                priceLevel: "€€-€€€",
+                imageUrl: "https://fangfrisch-luebeck.de/wp-content/uploads/2024/11/123.webp",
+                description: "Moderne Fischgerichte und Meeresfrüchte in stilvoller Atmosphäre, direkt am Wasser. Ideal für Fischliebhaber.",
+                birthdayTip: "Frischer Fisch mit Hafenblick.",
+                detailsLink: "#"
+            },
+            {
+                name: "Ristorante San Michele",
+                cuisine: "Italienisch",
+                priceLevel: "€€",
+                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nop0sbFihKftk7oD8QhOso0EWAzJtnOtZ4dNTdj3lXDwoktMEF84uQQqRam6R-yzK2hM7y4v5vKtt8rIBgyZfhF-RmcwF0Z8fjaOqnP43_m069XzJ_KaACApzw04viNhGAUwtM=s680-w680-h510-rw",
+                description: "Authentische italienische Küche in einem charmanten und einladenden Ambiente. Bietet eine gute Auswahl an klassischen Gerichten und Weinen.",
+                birthdayTip: "Klassisch italienisch und herzlich.",
+                detailsLink: "#"
+            },
+            {
+                name: "Johanna Berger - Das Restaurant",
+                cuisine: "Modern Deutsch",
+                priceLevel: "€€€",
+                imageUrl: "https://lh3.googleusercontent.com/gps-cs-s/AC9h4noJUA4Nm5wu0AYOJQG6p-yC699vkdKUF86KAPFzquEN8qyRMdabZYxkSC5VRsjP1gcbvupK0IQtFZg3iIcC-xP8uv3FkVeFD8I0n1aE9-ddH34HAWOcRrsjH8ALSGRGRtrimTzePw=s680-w680-h510-rw",
+                description: "Kreative, moderne deutsche Küche in einem stilvollen, aber gemütlichen Ambiente. Oft mit Überraschungsmenüs.",
+                birthdayTip: "Modern und überraschend.",
+                detailsLink: "#"
+            },
+            {
+                name: "Vai Bistro & Bar",
+                cuisine: "Europäisch",
+                priceLevel: "€€",
+                imageUrl: "https://restaurant-vai.de/wp-content/uploads/2021/06/innenhof.jpg",
+                description: "Trendiges Bistro mit einer guten Auswahl an modernen europäischen Gerichten und Cocktails. Eher locker, aber stilvoll.",
+                birthdayTip: "Locker-elegant für einen geselligen Abend.",
+                detailsLink: "#"
+            },
+             {
+                name: "Newport Restaurant & Marina",
+                cuisine: "International",
+                priceLevel: "€€€-€€€€",
+                imageUrl: "https://lh3.googleusercontent.com/p/AF1QipPHEU6ReTADyNf0HNAwq9cXanw4a826AYWTXMEA=s680-w680-h510-rw",
+                description: "Gehobene internationale Küche mit fantastischem Blick auf die Trave und die Lübecker Altstadt. Besonders schön am Abend.",
+                birthdayTip: "Dinner mit spektakulärer Aussicht.",
+                detailsLink: "#"
+            }
+        ];
+
+        const restaurantGrid = document.getElementById('restaurant-grid');
+
+        function displayRestaurants() { 
+            if (!restaurantGrid) {
+                console.error("Restaurant grid not found!");
+                return;
+            }
+            restaurantGrid.innerHTML = ''; 
+
+            restaurants.forEach(restaurant => {
+                const card = document.createElement('div');
+                card.className = 'restaurant-card';
+
+                const img = document.createElement('img');
+                img.src = restaurant.imageUrl; 
+                img.alt = `Bild von ${restaurant.name}`;
+                img.onerror = function() { 
+                    this.onerror=null; 
+                    this.src='https://via.placeholder.com/320x220.png?text=Bild+nicht+geladen'; 
+                    console.warn(`Bild für ${restaurant.name} konnte nicht geladen werden: ${restaurant.imageUrl}`);
+                };
+
+
+                const content = document.createElement('div');
+                content.className = 'restaurant-card-content';
+
+                const name = document.createElement('h3');
+                name.textContent = restaurant.name;
+
+                const cuisinePriceContainer = document.createElement('div');
+                cuisinePriceContainer.className = 'cuisine-price-container';
+
+                const cuisine = document.createElement('span'); 
+                cuisine.className = 'cuisine-type';
+                cuisine.textContent = restaurant.cuisine;
+                
+                const price = document.createElement('span'); 
+                price.className = 'price-level';
+                price.textContent = restaurant.priceLevel;
+
+                cuisinePriceContainer.appendChild(cuisine);
+                cuisinePriceContainer.appendChild(price);
+                
+                content.appendChild(name); 
+                content.appendChild(cuisinePriceContainer); 
+
+                if (restaurant.birthdayTip) { 
+                    const tip = document.createElement('p');
+                    tip.innerHTML = `<span class="birthday-tip">${restaurant.birthdayTip}</span>`;
+                    content.appendChild(tip);
+                }
+                
+                const description = document.createElement('p');
+                description.className = 'description';
+                description.textContent = restaurant.description;
+
+                const detailsButton = document.createElement('a');
+                detailsButton.href = restaurant.detailsLink;
+                detailsButton.className = 'details-button';
+                detailsButton.textContent = 'Details & Reservierung'; 
+                detailsButton.target = '_blank'; 
+
+                content.appendChild(description); 
+                content.appendChild(detailsButton); 
+                
+                card.appendChild(img);
+                card.appendChild(content);
+                
+                restaurantGrid.appendChild(card);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayRestaurants(); 
+        });
+    </script>
+</body>
+</html>
